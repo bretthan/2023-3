@@ -1,7 +1,13 @@
 const express = require('express')
 const app = express()
 const port = 1521
+const attendance = [];
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+	let person = req.query.name;
+	attendance.push(person);
+	console.log(attendance)
+	res.send(attendance)
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
